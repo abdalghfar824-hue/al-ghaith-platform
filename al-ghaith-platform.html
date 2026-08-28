@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>منصة الغيث التعليمية</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#f5f7fb;color:#172033}
+header{height:70px;background:#fff;border-bottom:1px solid #e5e9ef;display:flex;align-items:center;justify-content:space-between;padding:0 22px}
+.brand{display:flex;align-items:center;gap:10px}.logo{width:42px;height:42px;border-radius:12px;background:#173b2b;color:#fff;display:grid;place-items:center;font-size:23px;font-weight:bold}.brand small{display:block;color:#7b8494;font-size:11px}
+.layout{display:flex;min-height:calc(100vh - 70px)}aside{width:225px;background:#10291f;padding:15px 11px}.nav{display:block;width:100%;border:0;background:transparent;color:#d8e4de;text-align:right;padding:12px;border-radius:9px;margin:4px 0;cursor:pointer;font-size:14px}.nav.active{background:#1c4a37;color:white;border-right:3px solid #d4aa43}
+main{flex:1;padding:25px;max-width:1400px;margin:auto;width:100%}.head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.head h1{margin:0 0 5px;font-size:24px}.muted,.label{color:#7b8596;font-size:13px}.btn{background:#173b2b;color:#fff;border:0;border-radius:9px;padding:10px 15px;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card,.table{background:#fff;border:1px solid #e5e9ef;border-radius:14px;padding:17px}.stat{font-size:27px;font-weight:bold;margin-top:7px}.table{padding:0;overflow:auto;margin-top:17px}.title{padding:16px;font-weight:bold;border-bottom:1px solid #edf0f4}table{width:100%;border-collapse:collapse}th,td{text-align:right;padding:12px 15px;border-bottom:1px solid #edf0f4;font-size:13px}th{background:#fafbfd;color:#697486}.badge{padding:5px 9px;border-radius:18px;font-size:11px;background:#e4f4ea;color:#237341}
+.rules{margin-top:17px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.rule{text-align:center}
+@media(max-width:800px){aside{width:68px}.nav{font-size:0;text-align:center}.nav:first-letter{font-size:18px}.grid,.rules{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){aside{display:none}main{padding:14px}.grid,.rules{grid-template-columns:1fr}.head h1{font-size:20px}}
+</style>
+</head>
+<body>
+<header><div class="brand"><span class="logo">غ</span><div><b>منصة الغيث</b><small>التعليمية</small></div></div><span class="muted">لوحة الإدارة</span></header>
+<div class="layout">
+<aside>
+<button class="nav active" onclick="show('dashboard',this)">🏠 لوحة التحكم</button>
+<button class="nav" onclick="show('students',this)">🎓 الطلاب</button>
+<button class="nav" onclick="show('teachers',this)">👨‍🏫 المدرسون</button>
+<button class="nav" onclick="show('subjects',this)">📚 المراحل والمواد</button>
+<button class="nav" onclick="show('subscriptions',this)">💳 الاشتراكات</button>
+<button class="nav" onclick="show('sessions',this)">🕒 الحصص</button>
+<button class="nav" onclick="show('exams',this)">📝 الاختبارات</button>
+<button class="nav" onclick="show('awards',this)">🏆 التكريم والحوافز</button>
+<button class="nav" onclick="show('reports',this)">📊 التقارير</button>
+</aside>
+<main id="app"></main>
+</div>
+<script>
+const pages={
+dashboard:`<div class="head"><div><h1>لوحة التحكم</h1><div class="muted">نظرة شاملة على منصة الغيث</div></div><button class="btn">+ اشتراك جديد</button></div>
+<div class="grid">${[['إجمالي الطلاب','48'],['المدرسون النشطون','9'],['الحصص اليوم','26'],['الاشتراكات النشطة','41']].map(x=>`<div class="card"><div class="label">${x[0]}</div><div class="stat">${x[1]}</div></div>`).join('')}</div>
+<div class="table"><div class="title">الحصص القادمة</div><table><tr><th>الطالب</th><th>المدرس</th><th>المادة</th><th>الوقت</th><th>الحالة</th></tr><tr><td>محمد أحمد</td><td>ست سجى</td><td>الرياضيات</td><td>اليوم 16:00</td><td><span class="badge">مؤكدة</span></td></tr><tr><td>علي حسين</td><td>ست رسل</td><td>العربية</td><td>اليوم 17:00</td><td><span class="badge">مؤكدة</span></td></tr></table></div>
+<div class="rules"><div class="card rule"><b>5 ساعات</b><div class="muted">حد يومي</div></div><div class="card rule"><b>طالب واحد</b><div class="muted">للحصة الفردية</div></div><div class="card rule"><b>يومي / أسبوعي</b><div class="muted">متابعة واختبارات</div></div><div class="card rule"><b>وزارة التربية</b><div class="muted">المنهج</div></div></div>`,
+students:`<div class="head"><div><h1>الطلاب</h1><div class="muted">إدارة ملفات الطلاب</div></div><button class="btn">+ إضافة طالب</button></div><div class="table"><div class="title">قائمة الطلاب</div><table><tr><th>الاسم</th><th>المرحلة</th><th>المادة</th><th>الحالة</th><th>التقدم</th></tr><tr><td>محمد أحمد</td><td>الرابع الابتدائي</td><td>الرياضيات</td><td><span class="badge">نشط</span></td><td>92%</td></tr><tr><td>علي حسين</td><td>الخامس الابتدائي</td><td>العربية</td><td><span class="badge">نشط</span></td><td>87%</td></tr></table></div>`,
+teachers:`<div class="head"><div><h1>المدرسون</h1><div class="muted">إدارة الكادر التدريسي</div></div><button class="btn">+ إضافة مدرس</button></div><div class="table"><div class="title">الكادر</div><table><tr><th>المدرس</th><th>التخصص</th><th>الطلاب</th><th>التقييم</th></tr><tr><td>ست ضحى</td><td>الإنكليزي</td><td>18</td><td>4.9</td></tr><tr><td>ست سجى</td><td>الرياضيات</td><td>16</td><td>4.8</td></tr></table></div>`,
+subjects:`<div class="head"><div><h1>المراحل والمواد</h1><div class="muted">إدارة المراحل الدراسية والمواد وربطها بالكادر</div></div><button class="btn">+ إضافة</button></div><div class="card">هذه الوحدة جاهزة للربط بقاعدة البيانات.</div>`,
+subscriptions:`<div class="head"><div><h1>الاشتراكات</h1><div class="muted">إدارة الباقات والأسعار وفترات الاشتراك</div></div><button class="btn">+ إضافة باقة</button></div><div class="card">سيتم هنا تفعيل الباقات والدفع والمراجعة والتفعيل.</div>`,
+sessions:`<div class="head"><div><h1>الحصص</h1><div class="muted">الجدولة والحضور والمتابعة</div></div><button class="btn">+ حصة</button></div><div class="card">سيتم هنا منع تجاوز القواعد تلقائيًا.</div>`,
+exams:`<div class="head"><div><h1>الاختبارات</h1><div class="muted">اختبارات يومية وأسبوعية ودرجات</div></div><button class="btn">+ اختبار</button></div><div class="card">سيتم ربط الاختبارات والدرجات بقاعدة البيانات.</div>`,
+awards:`<div class="head"><div><h1>التكريم والحوافز</h1><div class="muted">إدارة تكريم الطلاب والمدرسين والحوافز</div></div><button class="btn">+ تكريم</button></div><div class="card">وحدة التكريم والحوافز جاهزة للتطوير.</div>`,
+reports:`<div class="head"><div><h1>التقارير</h1><div class="muted">تقارير أكاديمية ومالية وإدارية</div></div></div><div class="card">ستظهر هنا الإحصائيات والتقارير التفصيلية.</div>`
+};
+function show(p,b){document.getElementById('app').innerHTML=pages[p];document.querySelectorAll('.nav').forEach(x=>x.classList.remove('active'));b.classList.add('active')}
+show('dashboard',document.querySelector('.nav'));
+</script>
+</body></html>
