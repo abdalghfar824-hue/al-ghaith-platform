@@ -5,48 +5,250 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>منصة الغيث التعليمية</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#f5f7fb;color:#172033}
-header{height:70px;background:#fff;border-bottom:1px solid #e5e9ef;display:flex;align-items:center;justify-content:space-between;padding:0 22px}
-.brand{display:flex;align-items:center;gap:10px}.logo{width:42px;height:42px;border-radius:12px;background:#173b2b;color:#fff;display:grid;place-items:center;font-size:23px;font-weight:bold}.brand small{display:block;color:#7b8494;font-size:11px}
-.layout{display:flex;min-height:calc(100vh - 70px)}aside{width:225px;background:#10291f;padding:15px 11px}.nav{display:block;width:100%;border:0;background:transparent;color:#d8e4de;text-align:right;padding:12px;border-radius:9px;margin:4px 0;cursor:pointer;font-size:14px}.nav.active{background:#1c4a37;color:white;border-right:3px solid #d4aa43}
-main{flex:1;padding:25px;max-width:1400px;margin:auto;width:100%}.head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.head h1{margin:0 0 5px;font-size:24px}.muted,.label{color:#7b8596;font-size:13px}.btn{background:#173b2b;color:#fff;border:0;border-radius:9px;padding:10px 15px;cursor:pointer}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card,.table{background:#fff;border:1px solid #e5e9ef;border-radius:14px;padding:17px}.stat{font-size:27px;font-weight:bold;margin-top:7px}.table{padding:0;overflow:auto;margin-top:17px}.title{padding:16px;font-weight:bold;border-bottom:1px solid #edf0f4}table{width:100%;border-collapse:collapse}th,td{text-align:right;padding:12px 15px;border-bottom:1px solid #edf0f4;font-size:13px}th{background:#fafbfd;color:#697486}.badge{padding:5px 9px;border-radius:18px;font-size:11px;background:#e4f4ea;color:#237341}
-.rules{margin-top:17px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.rule{text-align:center}
-@media(max-width:800px){aside{width:68px}.nav{font-size:0;text-align:center}.nav:first-letter{font-size:18px}.grid,.rules{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){aside{display:none}main{padding:14px}.grid,.rules{grid-template-columns:1fr}.head h1{font-size:20px}}
+:root{--green:#0d3b2e;--green2:#17634b;--gold:#c9a24b;--cream:#f7f4ec;--ink:#14231f;--muted:#6d7b76;--line:#e7ebe8;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Tahoma,"Arial",sans-serif;background:#f6f8f7;color:var(--ink);line-height:1.7}
+button{font:inherit}
+.top{background:var(--green);color:#fff;text-align:center;padding:7px 12px;font-size:12px}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.navbar{max-width:1180px;margin:auto;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;min-width:max-content}
+.logo{width:46px;height:46px;border-radius:15px;background:linear-gradient(135deg,var(--green),#24785b);color:#fff;display:grid;place-items:center;font-size:25px;font-weight:900;box-shadow:0 8px 20px #0d3b2e22}
+.brand b{display:block;font-size:18px;color:var(--green)}
+.brand span{font-size:11px;color:var(--muted)}
+nav{display:flex;gap:4px;align-items:center}
+nav a{color:#34453f;text-decoration:none;padding:9px 12px;border-radius:9px;font-size:13px}
+nav a:hover{background:var(--cream);color:var(--green)}
+.navbtn{background:var(--green);color:#fff!important}
+.hero{max-width:1180px;margin:26px auto 0;padding:0 18px}
+.heroBox{min-height:445px;border-radius:28px;overflow:hidden;background:linear-gradient(120deg,#0b3428 0%,#155640 58%,#1c7658 100%);position:relative;color:#fff;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;padding:55px}
+.heroBox:before{content:"";position:absolute;width:330px;height:330px;border:1px solid #ffffff20;border-radius:50%;left:-90px;bottom:-140px}
+.heroBox:after{content:"";position:absolute;width:420px;height:420px;border:1px solid #ffffff18;border-radius:50%;right:-170px;top:-220px}
+.heroText{position:relative;z-index:2}
+.kicker{color:#f1d38b;font-weight:bold;font-size:13px;margin-bottom:9px}
+.hero h1{font-size:42px;line-height:1.25;margin:0 0 15px}
+.hero p{max-width:620px;color:#dbe9e4;margin:0 0 25px;font-size:16px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:0;border-radius:12px;padding:12px 19px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.primary{background:#fff;color:var(--green);font-weight:bold}
+.btn.gold{background:var(--gold);color:#1e281f;font-weight:bold}
+.heroArt{position:relative;z-index:2;display:flex;justify-content:center}
+.book{width:290px;height:245px;background:#fff;border-radius:18px 28px 28px 18px;transform:rotate(-5deg);box-shadow:0 25px 55px #0004;position:relative;color:var(--green);padding:30px}
+.book:before{content:"";position:absolute;right:22px;top:0;bottom:0;width:4px;background:#dce7e2}
+.book h3{font-size:27px;margin:20px 0 4px}.book p{font-size:12px;color:#68766f}
+.leaf{position:absolute;width:42px;height:70px;border-radius:100% 0 100% 0;background:#c9a24b;opacity:.9;transform:rotate(35deg);left:22px;bottom:22px}
+.section{max-width:1180px;margin:70px auto;padding:0 18px}
+.sectionHead{text-align:center;margin-bottom:28px}.sectionHead h2{margin:0;color:var(--green);font-size:28px}.sectionHead p{margin:5px 0;color:var(--muted);font-size:14px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 8px 25px #163d2b08;transition:.2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 15px 30px #163d2b12}
+.icon{width:48px;height:48px;border-radius:14px;background:var(--cream);display:grid;place-items:center;font-size:24px;margin-bottom:13px}
+.card h3{margin:0 0 4px;color:var(--green);font-size:17px}.card p{margin:0;color:var(--muted);font-size:12px}
+.grades{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.grade{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;color:var(--ink)}
+.grade strong{color:var(--green);font-size:15px}.grade span{font-size:11px;color:var(--muted)}
+.info{background:var(--cream);border-radius:24px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}
+.info h2{color:var(--green);margin-top:0}.info p{color:#52625d;font-size:14px}
+.rules{display:grid;gap:10px}.rule{background:#fff;padding:13px 15px;border-radius:12px;border:1px solid #e7dfca}.rule b{color:var(--green)}
+footer{margin-top:70px;background:var(--green);color:#dce9e4;padding:35px 18px}.foot{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot b{color:#fff;font-size:18px}.foot small{color:#b9cec6}
+@media(max-width:900px){nav a:not(.navbtn){display:none}.heroBox{grid-template-columns:1fr;padding:38px 28px}.heroArt{display:none}.hero h1{font-size:34px}.cards,.grades{grid-template-columns:repeat(2,1fr)}.info{grid-template-columns:1fr}}
+@media(max-width:520px){.navbar{height:68px}.hero{margin-top:15px}.heroBox{min-height:390px;border-radius:22px;padding:30px 22px}.hero h1{font-size:29px}.hero p{font-size:14px}.cards,.grades{grid-template-columns:1fr}.section{margin:52px auto}.sectionHead h2{font-size:24px}}
 </style>
 </head>
+
 <body>
-<header><div class="brand"><span class="logo">غ</span><div><b>منصة الغيث</b><small>التعليمية</small></div></div><span class="muted">لوحة الإدارة</span></header>
-<div class="layout">
-<aside>
-<button class="nav active" onclick="show('dashboard',this)">🏠 لوحة التحكم</button>
-<button class="nav" onclick="show('students',this)">🎓 الطلاب</button>
-<button class="nav" onclick="show('teachers',this)">👨‍🏫 المدرسون</button>
-<button class="nav" onclick="show('subjects',this)">📚 المراحل والمواد</button>
-<button class="nav" onclick="show('subscriptions',this)">💳 الاشتراكات</button>
-<button class="nav" onclick="show('sessions',this)">🕒 الحصص</button>
-<button class="nav" onclick="show('exams',this)">📝 الاختبارات</button>
-<button class="nav" onclick="show('awards',this)">🏆 التكريم والحوافز</button>
-<button class="nav" onclick="show('reports',this)">📊 التقارير</button>
-</aside>
-<main id="app"></main>
+
+<div class="top">
+منصة الغيث التعليمية • بيئة تعليمية منظمة للطالب والمدرس
 </div>
-<script>
-const pages={
-dashboard:`<div class="head"><div><h1>لوحة التحكم</h1><div class="muted">نظرة شاملة على منصة الغيث</div></div><button class="btn">+ اشتراك جديد</button></div>
-<div class="grid">${[['إجمالي الطلاب','48'],['المدرسون النشطون','9'],['الحصص اليوم','26'],['الاشتراكات النشطة','41']].map(x=>`<div class="card"><div class="label">${x[0]}</div><div class="stat">${x[1]}</div></div>`).join('')}</div>
-<div class="table"><div class="title">الحصص القادمة</div><table><tr><th>الطالب</th><th>المدرس</th><th>المادة</th><th>الوقت</th><th>الحالة</th></tr><tr><td>محمد أحمد</td><td>ست سجى</td><td>الرياضيات</td><td>اليوم 16:00</td><td><span class="badge">مؤكدة</span></td></tr><tr><td>علي حسين</td><td>ست رسل</td><td>العربية</td><td>اليوم 17:00</td><td><span class="badge">مؤكدة</span></td></tr></table></div>
-<div class="rules"><div class="card rule"><b>5 ساعات</b><div class="muted">حد يومي</div></div><div class="card rule"><b>طالب واحد</b><div class="muted">للحصة الفردية</div></div><div class="card rule"><b>يومي / أسبوعي</b><div class="muted">متابعة واختبارات</div></div><div class="card rule"><b>وزارة التربية</b><div class="muted">المنهج</div></div></div>`,
-students:`<div class="head"><div><h1>الطلاب</h1><div class="muted">إدارة ملفات الطلاب</div></div><button class="btn">+ إضافة طالب</button></div><div class="table"><div class="title">قائمة الطلاب</div><table><tr><th>الاسم</th><th>المرحلة</th><th>المادة</th><th>الحالة</th><th>التقدم</th></tr><tr><td>محمد أحمد</td><td>الرابع الابتدائي</td><td>الرياضيات</td><td><span class="badge">نشط</span></td><td>92%</td></tr><tr><td>علي حسين</td><td>الخامس الابتدائي</td><td>العربية</td><td><span class="badge">نشط</span></td><td>87%</td></tr></table></div>`,
-teachers:`<div class="head"><div><h1>المدرسون</h1><div class="muted">إدارة الكادر التدريسي</div></div><button class="btn">+ إضافة مدرس</button></div><div class="table"><div class="title">الكادر</div><table><tr><th>المدرس</th><th>التخصص</th><th>الطلاب</th><th>التقييم</th></tr><tr><td>ست ضحى</td><td>الإنكليزي</td><td>18</td><td>4.9</td></tr><tr><td>ست سجى</td><td>الرياضيات</td><td>16</td><td>4.8</td></tr></table></div>`,
-subjects:`<div class="head"><div><h1>المراحل والمواد</h1><div class="muted">إدارة المراحل الدراسية والمواد وربطها بالكادر</div></div><button class="btn">+ إضافة</button></div><div class="card">هذه الوحدة جاهزة للربط بقاعدة البيانات.</div>`,
-subscriptions:`<div class="head"><div><h1>الاشتراكات</h1><div class="muted">إدارة الباقات والأسعار وفترات الاشتراك</div></div><button class="btn">+ إضافة باقة</button></div><div class="card">سيتم هنا تفعيل الباقات والدفع والمراجعة والتفعيل.</div>`,
-sessions:`<div class="head"><div><h1>الحصص</h1><div class="muted">الجدولة والحضور والمتابعة</div></div><button class="btn">+ حصة</button></div><div class="card">سيتم هنا منع تجاوز القواعد تلقائيًا.</div>`,
-exams:`<div class="head"><div><h1>الاختبارات</h1><div class="muted">اختبارات يومية وأسبوعية ودرجات</div></div><button class="btn">+ اختبار</button></div><div class="card">سيتم ربط الاختبارات والدرجات بقاعدة البيانات.</div>`,
-awards:`<div class="head"><div><h1>التكريم والحوافز</h1><div class="muted">إدارة تكريم الطلاب والمدرسين والحوافز</div></div><button class="btn">+ تكريم</button></div><div class="card">وحدة التكريم والحوافز جاهزة للتطوير.</div>`,
-reports:`<div class="head"><div><h1>التقارير</h1><div class="muted">تقارير أكاديمية ومالية وإدارية</div></div></div><div class="card">ستظهر هنا الإحصائيات والتقارير التفصيلية.</div>`
-};
-function show(p,b){document.getElementById('app').innerHTML=pages[p];document.querySelectorAll('.nav').forEach(x=>x.classList.remove('active'));b.classList.add('active')}
-show('dashboard',document.querySelector('.nav'));
-</script>
-</body></html>
+
+<header>
+<div class="navbar">
+
+<div class="brand">
+<div class="logo">غ</div>
+<div>
+<b>منصة الغيث</b>
+<span>التعليمية</span>
+</div>
+</div>
+
+<nav>
+<a href="#home">الرئيسية</a>
+<a href="#services">خدمات المنصة</a>
+<a href="#grades">المراحل الدراسية</a>
+<a href="#rules">الضوابط</a>
+<a class="navbtn" href="#grades">تصفح المواد</a>
+</nav>
+
+</div>
+</header>
+
+<section class="hero" id="home">
+
+<div class="heroBox">
+
+<div class="heroText">
+
+<div class="kicker">
+مرحبًا بكم في منصة الغيث
+</div>
+
+<h1>
+التعليم المنظم<br>
+في مكان واحد
+</h1>
+
+<p>
+منصة تعليمية تهدف إلى جمع المواد الدراسية والمصادر التعليمية والضوابط والتنظيمات الخاصة بالطالب والمدرس ضمن واجهة سهلة وواضحة.
+</p>
+
+<div class="actions">
+<a class="btn primary" href="#grades">📚 تصفح المواد الدراسية</a>
+<a class="btn gold" href="#rules">📋 ضوابط المنصة</a>
+</div>
+
+</div>
+
+<div class="heroArt">
+
+<div class="book">
+
+<div class="leaf"></div>
+
+<h3>الغيث</h3>
+
+<p>
+منصة تعليمية • مواد دراسية • مصادر • متابعة
+</p>
+
+<div style="margin-top:35px;border-top:1px solid #dfe8e4;padding-top:12px;font-size:12px">
+نحو تجربة تعليمية أكثر تنظيمًا
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="services">
+
+<div class="sectionHead">
+<h2>ماذا توفر منصة الغيث؟</h2>
+<p>أقسام واضحة للوصول السريع إلى الخدمات والمصادر</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">📚</div>
+<h3>المواد الدراسية</h3>
+<p>تنظيم المواد والكتب الدراسية حسب المرحلة والصف.</p>
+</div>
+
+<div class="card">
+<div class="icon">📄</div>
+<h3>ملفات PDF</h3>
+<p>مكان مخصص للكتب والوثائق والمصادر التعليمية.</p>
+</div>
+
+<div class="card">
+<div class="icon">👨‍🏫</div>
+<h3>دليل المدرس</h3>
+<p>تعليمات وضوابط تساعد المدرس على تقديم الحصة.</p>
+</div>
+
+<div class="card">
+<div class="icon">👨‍🎓</div>
+<h3>دليل الطالب</h3>
+<p>وصول أسهل للمحتوى والمتابعة والاختبارات.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="grades">
+
+<div class="sectionHead">
+<h2>اختر المرحلة الدراسية</h2>
+<p>سيتم ربط كل صف بمواده وملفاته الدراسية</p>
+</div>
+
+<div class="grades">
+
+<a class="grade" href="#"><strong>الأول الابتدائي</strong><span>المواد ›</span></a>
+<a class="grade" href="#"><strong>الثاني الابتدائي</strong><span>المواد ›</span></a>
+<a class="grade" href="#"><strong>الثالث الابتدائي</strong><span>المواد ›</span></a>
+<a class="grade" href="#"><strong>الرابع الابتدائي</strong><span>المواد ›</span></a>
+<a class="grade" href="#"><strong>الخامس الابتدائي</strong><span>المواد ›</span></a>
+<a class="grade" href="#"><strong>السادس الابتدائي</strong><span>المواد ›</span></a>
+<a class="grade" href="#"><strong>الأول المتوسط</strong><span>المواد ›</span></a>
+<a class="grade" href="#"><strong>الثاني المتوسط</strong><span>المواد ›</span></a>
+
+</div>
+
+</section>
+
+<section class="section" id="rules">
+
+<div class="info">
+
+<div>
+
+<h2>ضوابط التدريس في منصة الغيث</h2>
+
+<p>
+سيتم وضع ملف الضوابط الرسمي هنا بصيغة PDF، مع إمكانية فتحه أو تحميله بسهولة. كما يمكن إضافة تعليمات الطالب والمدرس والاختبارات والاشتراكات في هذه الصفحة.
+</p>
+
+<a class="btn gold" href="#">
+📄 فتح ملف الضوابط
+</a>
+
+</div>
+
+<div class="rules">
+
+<div class="rule">
+✓ <b>تنظيم الحصص</b> — وفق النظام المعتمد للمنصة.
+</div>
+
+<div class="rule">
+✓ <b>المتابعة والاختبارات</b> — تنظيم الدرجات والتقييم.
+</div>
+
+<div class="rule">
+✓ <b>حقوق وواجبات المستخدم</b> — تعليمات واضحة للطالب والمدرس.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="foot">
+
+<div>
+<b>منصة الغيث التعليمية</b>
+<br>
+<small>تعلم • نظم • تطور</small>
+</div>
+
+<small>
+© 2026 منصة الغيث — جميع الحقوق محفوظة
+</small>
+
+</div>
+
+</footer>
+
+</body>
+</html>
