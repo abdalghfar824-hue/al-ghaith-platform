@@ -4,17 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>منصة الغيث التعليمية | التعليم يبدأ بخطوة</title>
-
-<meta name="description"
-content="منصة الغيث التعليمية - منصة تعليمية للطلاب والمدرسين والمواد الدراسية">
+<title>منصة الغيث التعليمية</title>
 
 <style>
-
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 html{
@@ -22,1401 +18,714 @@ html{
 }
 
 body{
-    font-family:
-    Tahoma,
-    Arial,
-    sans-serif;
-
-    background:#f7f9f8;
-    color:#14261e;
+    font-family:Tahoma,Arial,sans-serif;
+    background:#f6f8f7;
+    color:#17251f;
     line-height:1.8;
 }
 
 a{
     text-decoration:none;
-    color:inherit;
 }
-
-button{
-    font-family:inherit;
-}
-
-/* =========================
-   الألوان
-========================= */
 
 :root{
-
     --green:#103b2b;
-    --green2:#18533c;
-    --green3:#22684b;
-
+    --green2:#18533d;
     --gold:#c99b3b;
-    --gold2:#e0b95d;
-
-    --white:#ffffff;
-
-    --light:#f5f8f6;
-    --text:#17241e;
+    --light:#f1f5f3;
+    --border:#e1e9e4;
     --muted:#718078;
-
-    --border:#e4ebe7;
-
-    --shadow:
-    0 18px 50px rgba(16,59,43,.10);
 }
 
-/* =========================
-   الشريط العلوي
-========================= */
+/* ===== الهيدر ===== */
 
 header{
-
     position:sticky;
     top:0;
     z-index:1000;
-
-    height:78px;
-
-    background:rgba(255,255,255,.95);
-
-    backdrop-filter:blur(15px);
-
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(12px);
     border-bottom:1px solid var(--border);
 }
 
 .navbar{
-
-    width:min(1250px,94%);
-
-    height:100%;
-
+    width:min(1200px,94%);
+    height:78px;
     margin:auto;
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
+    gap:20px;
 }
 
-/* الشعار */
-
 .brand{
-
     display:flex;
-
     align-items:center;
-
     gap:12px;
-
-    font-weight:bold;
 }
 
 .brand img{
-
-    width:55px;
-    height:55px;
-
+    width:58px;
+    height:58px;
     object-fit:contain;
-
-    border-radius:12px;
 }
 
-.brand-text strong{
-
+.brand strong{
     display:block;
-
-    font-size:19px;
-
     color:var(--green);
+    font-size:19px;
 }
 
-.brand-text span{
-
+.brand span{
     display:block;
-
-    font-size:11px;
-
     color:var(--muted);
+    font-size:11px;
 }
-
-/* القائمة */
 
 .menu{
-
     display:flex;
-
     align-items:center;
-
-    gap:27px;
-
-    font-size:14px;
-
-    color:#42534b;
+    gap:25px;
 }
 
 .menu a{
-
-    transition:.25s;
+    color:#46564f;
+    font-size:13px;
+    transition:.2s;
 }
 
 .menu a:hover{
-
     color:var(--gold);
 }
 
-/* زر الدخول */
-
-.login-btn{
-
-    background:var(--green);
-
-    color:white;
-
+.login{
     border:0;
-
-    padding:11px 22px;
-
+    background:var(--green);
+    color:white;
+    padding:11px 21px;
     border-radius:10px;
-
     cursor:pointer;
-
-    font-size:14px;
-
-    transition:.3s;
 }
 
-.login-btn:hover{
-
-    background:var(--green2);
-
-    transform:translateY(-2px);
-}
-
-/* زر الموبايل */
-
-.mobile-btn{
-
-    display:none;
-
-    font-size:25px;
-
-    cursor:pointer;
-
-    color:var(--green);
-}
-
-/* =========================
-   HERO
-========================= */
+/* ===== الواجهة الرئيسية ===== */
 
 .hero{
-
-    position:relative;
-
-    overflow:hidden;
-
-    min-height:650px;
-
+    min-height:620px;
     display:flex;
-
     align-items:center;
-
     background:
-
-    radial-gradient(
-        circle at 85% 20%,
-        rgba(201,155,59,.13),
-        transparent 25%
-    ),
-
-    linear-gradient(
-        135deg,
-        #f8fbf9,
-        #eef5f1
-    );
+    radial-gradient(circle at 85% 20%,rgba(201,155,59,.13),transparent 25%),
+    linear-gradient(135deg,#fafcfb,#edf4f0);
 }
 
-.hero::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:450px;
-    height:450px;
-
-    border-radius:50%;
-
-    background:rgba(16,59,43,.035);
-
-    left:-180px;
-    bottom:-200px;
-}
-
-.hero-container{
-
-    width:min(1250px,94%);
-
+.hero-inner{
+    width:min(1200px,94%);
     margin:auto;
-
     display:grid;
-
-    grid-template-columns:1.05fr .95fr;
-
+    grid-template-columns:1fr 1fr;
     gap:60px;
-
     align-items:center;
-
-    position:relative;
-
-    z-index:2;
 }
 
-/* النص */
-
-.hero-content{
-
+.hero-text{
     padding:50px 0;
 }
 
-.small-title{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:8px;
-
+.tag{
+    display:inline-block;
     background:white;
-
-    color:var(--green);
-
     border:1px solid var(--border);
-
-    padding:7px 14px;
-
+    color:var(--green);
+    padding:6px 14px;
     border-radius:30px;
-
     font-size:12px;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.04);
-
-    margin-bottom:20px;
-}
-
-.small-title i{
-
-    width:8px;
-    height:8px;
-
-    background:var(--gold);
-
-    border-radius:50%;
+    margin-bottom:18px;
 }
 
 .hero h1{
-
-    font-size:clamp(36px,5vw,62px);
-
-    line-height:1.2;
-
     color:var(--green);
-
+    font-size:clamp(38px,5vw,60px);
+    line-height:1.25;
     margin-bottom:18px;
-
-    letter-spacing:-1px;
 }
 
 .hero h1 span{
-
     color:var(--gold);
 }
 
 .hero p{
-
-    max-width:620px;
-
-    color:#68766f;
-
-    font-size:17px;
-
-    line-height:2;
-
-    margin-bottom:30px;
+    color:var(--muted);
+    max-width:600px;
+    font-size:16px;
+    margin-bottom:28px;
 }
 
-.hero-buttons{
-
+.buttons{
     display:flex;
-
-    gap:13px;
-
+    gap:12px;
     flex-wrap:wrap;
 }
 
-.primary-btn{
+.btn{
+    display:inline-block;
+    padding:13px 25px;
+    border-radius:10px;
+    font-size:13px;
+    transition:.25s;
+}
 
+.btn-primary{
     background:var(--green);
-
     color:white;
-
-    padding:14px 27px;
-
-    border-radius:11px;
-
-    border:0;
-
-    cursor:pointer;
-
-    font-size:14px;
-
-    box-shadow:0 10px 25px rgba(16,59,43,.18);
-
-    transition:.3s;
 }
 
-.primary-btn:hover{
-
-    transform:translateY(-3px);
-
-    background:var(--green2);
-}
-
-.secondary-btn{
-
+.btn-secondary{
     background:white;
-
     color:var(--green);
-
-    padding:13px 27px;
-
-    border-radius:11px;
-
     border:1px solid var(--border);
-
-    cursor:pointer;
-
-    font-size:14px;
-
-    transition:.3s;
 }
 
-.secondary-btn:hover{
-
-    border-color:var(--gold);
-
-    color:var(--gold);
+.btn:hover{
+    transform:translateY(-3px);
 }
 
-/* =========================
-   بطاقة الصورة
-========================= */
+/* ===== صورة الواجهة ===== */
 
-.hero-visual{
-
-    position:relative;
-
-    min-height:470px;
-
+.hero-image{
+    min-height:430px;
     display:flex;
-
     align-items:center;
-
     justify-content:center;
+    position:relative;
 }
 
-.main-visual{
-
-    width:min(470px,90%);
-
+.image-box{
+    width:min(460px,90%);
     height:390px;
-
-    border-radius:35px;
-
-    background:
-
-    linear-gradient(
-        145deg,
-        var(--green),
-        #0b2c21
-    );
-
-    position:relative;
-
-    box-shadow:
-    0 30px 70px rgba(16,59,43,.22);
-
-    overflow:hidden;
-
+    border-radius:32px;
+    background:linear-gradient(145deg,var(--green),#09271d);
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-}
-
-.main-visual::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:330px;
-    height:330px;
-
-    border:1px solid rgba(255,255,255,.12);
-
-    border-radius:50%;
-}
-
-.main-visual::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:450px;
-    height:450px;
-
-    border:1px solid rgba(201,155,59,.15);
-
-    border-radius:50%;
-}
-
-.visual-logo{
-
     position:relative;
+    overflow:hidden;
+    box-shadow:0 30px 65px rgba(16,59,43,.22);
+}
 
-    z-index:3;
+.image-box::before,
+.image-box::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.1);
+}
 
-    width:180px;
-    height:180px;
+.image-box::before{
+    width:300px;
+    height:300px;
+}
 
+.image-box::after{
+    width:430px;
+    height:430px;
+    border-color:rgba(201,155,59,.12);
+}
+
+.hero-logo{
+    width:190px;
+    height:190px;
     object-fit:contain;
-
-    filter:drop-shadow(0 15px 25px rgba(0,0,0,.25));
+    position:relative;
+    z-index:2;
 }
 
-.visual-title{
-
+.image-title{
     position:absolute;
-
-    z-index:4;
-
-    bottom:34px;
-
+    bottom:27px;
     color:white;
-
     text-align:center;
-
     width:100%;
+    z-index:3;
 }
 
-.visual-title strong{
-
+.image-title strong{
     display:block;
-
-    font-size:27px;
-
-    color:white;
+    font-size:25px;
 }
 
-.visual-title span{
-
-    color:#d9c17d;
-
+.image-title span{
+    color:#e0c36b;
     font-size:12px;
 }
 
-/* بطاقة عائمة */
-
-.floating-card{
-
+.float{
     position:absolute;
-
-    background:white;
-
-    padding:13px 17px;
-
-    border-radius:14px;
-
-    box-shadow:var(--shadow);
-
-    font-size:12px;
-
     z-index:5;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
+    background:white;
+    padding:12px 16px;
+    border-radius:13px;
+    box-shadow:0 15px 35px rgba(0,0,0,.10);
+    font-size:11px;
 }
 
 .float-one{
-
-    top:65px;
-
-    right:-10px;
+    right:0;
+    top:55px;
 }
 
 .float-two{
-
+    left:0;
     bottom:55px;
-
-    left:-15px;
 }
 
-.float-icon{
-
-    width:38px;
-    height:38px;
-
-    border-radius:10px;
-
-    background:#eef6f1;
-
-    display:grid;
-
-    place-items:center;
-
-    font-size:18px;
-}
-
-/* =========================
-   الإحصائيات
-========================= */
+/* ===== الإحصائيات ===== */
 
 .stats{
-
     background:white;
-
     border-top:1px solid var(--border);
-
     border-bottom:1px solid var(--border);
 }
 
-.stats-container{
-
-    width:min(1100px,94%);
-
+.stats-inner{
+    width:min(1050px,94%);
     margin:auto;
-
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
 }
 
 .stat{
-
     text-align:center;
-
-    padding:28px 15px;
-
+    padding:25px;
     border-left:1px solid var(--border);
 }
 
 .stat:last-child{
-
     border-left:0;
 }
 
 .stat strong{
-
     display:block;
-
     color:var(--green);
-
-    font-size:27px;
+    font-size:26px;
 }
 
 .stat span{
-
     color:var(--muted);
-
-    font-size:12px;
+    font-size:11px;
 }
 
-/* =========================
-   الأقسام
-========================= */
+/* ===== الأقسام ===== */
 
 .section{
-
-    padding:90px 0;
+    padding:80px 0;
 }
 
 .container{
-
     width:min(1150px,94%);
-
     margin:auto;
 }
 
-.section-head{
-
+.section-title{
     text-align:center;
-
-    max-width:700px;
-
-    margin:0 auto 45px;
+    margin-bottom:42px;
 }
 
-.section-head small{
-
+.section-title small{
     color:var(--gold);
-
+    font-size:12px;
     font-weight:bold;
+}
 
+.section-title h2{
+    color:var(--green);
+    font-size:32px;
+    margin:5px 0;
+}
+
+.section-title p{
+    color:var(--muted);
     font-size:13px;
 }
 
-.section-head h2{
-
-    color:var(--green);
-
-    font-size:34px;
-
-    margin:7px 0 10px;
-}
-
-.section-head p{
-
-    color:var(--muted);
-
-    font-size:14px;
-}
-
-/* =========================
-   المميزات
-========================= */
-
-.features{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:20px;
-}
-
-.feature{
-
-    background:white;
-
-    border:1px solid var(--border);
-
-    border-radius:18px;
-
-    padding:27px;
-
-    transition:.3s;
-
-    box-shadow:0 7px 25px rgba(16,59,43,.04);
-}
-
-.feature:hover{
-
-    transform:translateY(-7px);
-
-    box-shadow:var(--shadow);
-
-    border-color:#d9e4de;
-}
-
-.feature-icon{
-
-    width:54px;
-    height:54px;
-
-    background:#edf5f0;
-
-    border-radius:14px;
-
-    display:grid;
-
-    place-items:center;
-
-    font-size:25px;
-
-    margin-bottom:18px;
-}
-
-.feature h3{
-
-    color:var(--green);
-
-    margin-bottom:8px;
-
-    font-size:18px;
-}
-
-.feature p{
-
-    color:var(--muted);
-
-    font-size:13px;
-
-    line-height:1.9;
-}
-
-/* =========================
-   المراحل
-========================= */
+/* ===== المراحل ===== */
 
 .stages-section{
-
-    background:#f0f5f2;
+    background:#eef4f1;
 }
 
 .stages{
-
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
     gap:16px;
 }
 
 .stage{
-
     background:white;
-
-    border-radius:17px;
-
-    padding:23px;
-
     border:1px solid var(--border);
-
-    transition:.3s;
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-.stage::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:80px;
-    height:80px;
-
-    border-radius:50%;
-
-    background:rgba(201,155,59,.07);
-
-    left:-30px;
-    bottom:-30px;
+    border-radius:17px;
+    padding:23px;
+    transition:.25s;
 }
 
 .stage:hover{
-
     transform:translateY(-5px);
-
-    box-shadow:var(--shadow);
+    box-shadow:0 18px 40px rgba(16,59,43,.09);
 }
 
 .stage-number{
-
     color:var(--gold);
-
-    font-size:12px;
-
+    font-size:11px;
     font-weight:bold;
 }
 
 .stage h3{
-
     color:var(--green);
-
-    margin:5px 0;
-
-    font-size:17px;
+    font-size:16px;
+    margin:4px 0;
 }
 
 .stage p{
-
     color:var(--muted);
-
-    font-size:12px;
-}
-
-/* =========================
-   المواد الدراسية
-========================= */
-
-.materials{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:18px;
-}
-
-.material{
-
-    background:white;
-
-    border:1px solid var(--border);
-
-    border-radius:17px;
-
-    padding:22px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    transition:.3s;
-}
-
-.material:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:var(--shadow);
-}
-
-.material-icon{
-
-    width:53px;
-    height:53px;
-
-    border-radius:13px;
-
-    background:#fff6df;
-
-    display:grid;
-
-    place-items:center;
-
-    font-size:23px;
-
-    flex-shrink:0;
-}
-
-.material h3{
-
-    font-size:15px;
-
-    color:var(--green);
-}
-
-.material p{
-
     font-size:11px;
-
-    color:var(--muted);
 }
 
-/* =========================
-   قسم الضوابط
-========================= */
+/* ===== الكتب ===== */
 
-.rules-section{
-
-    background:var(--green);
-
-    color:white;
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-.rules-section::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:450px;
-    height:450px;
-
-    border-radius:50%;
-
-    border:1px solid rgba(255,255,255,.06);
-
-    left:-150px;
-
-    top:-200px;
-}
-
-.rules-section .section-head h2{
-
-    color:white;
-}
-
-.rules-section .section-head p{
-
-    color:#bdd0c7;
-}
-
-.rules-box{
-
-    background:rgba(255,255,255,.06);
-
-    border:1px solid rgba(255,255,255,.1);
-
-    border-radius:22px;
-
-    padding:30px;
-
+.books{
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
 
+.book{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:25px;
+    transition:.25s;
+}
+
+.book:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 40px rgba(16,59,43,.09);
+}
+
+.book-icon{
+    width:58px;
+    height:58px;
+    display:grid;
+    place-items:center;
+    border-radius:14px;
+    background:#fff6df;
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.book h3{
+    color:var(--green);
+    font-size:17px;
+}
+
+.book p{
+    color:var(--muted);
+    font-size:12px;
+    margin:5px 0 15px;
+}
+
+.open-book{
+    display:inline-block;
+    background:var(--green);
+    color:white;
+    padding:9px 15px;
+    border-radius:8px;
+    font-size:12px;
+}
+
+/* ===== الضوابط ===== */
+
+.rules{
+    background:var(--green);
+    color:white;
+}
+
+.rules .section-title h2{
+    color:white;
+}
+
+.rules .section-title p{
+    color:#c1d2ca;
+}
+
+.rules-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
     gap:18px;
 }
 
-.rule-card{
-
-    padding:20px;
-
-    border-radius:15px;
-
-    background:rgba(255,255,255,.05);
+.rule{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:16px;
+    padding:25px;
 }
 
-.rule-card strong{
-
+.rule strong{
     display:block;
-
-    color:#e1c46f;
-
-    margin-bottom:7px;
+    color:#e0c36b;
+    margin-bottom:8px;
 }
 
-.rule-card span{
-
+.rule span{
+    color:#c6d5ce;
     font-size:12px;
-
-    color:#c4d5cd;
 }
 
-/* =========================
-   نبذة
-========================= */
+/* ===== عن المنصة ===== */
 
 .about{
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
-    gap:60px;
-
+    gap:55px;
     align-items:center;
 }
 
-.about-box{
-
+.about-image{
     background:white;
-
     border:1px solid var(--border);
-
     border-radius:25px;
-
-    padding:35px;
-
-    box-shadow:var(--shadow);
+    min-height:300px;
+    display:grid;
+    place-items:center;
+    box-shadow:0 18px 45px rgba(16,59,43,.07);
 }
 
-.about-box img{
-
-    width:130px;
-
-    height:130px;
-
+.about-image img{
+    width:170px;
+    height:170px;
     object-fit:contain;
-
-    display:block;
-
-    margin:auto;
 }
 
-.about-content h2{
-
-    font-size:34px;
-
+.about-text h2{
     color:var(--green);
-
-    margin-bottom:15px;
+    font-size:32px;
+    margin-bottom:12px;
 }
 
-.about-content p{
-
+.about-text p{
     color:var(--muted);
-
-    font-size:14px;
-
-    line-height:2.1;
-
-    margin-bottom:15px;
+    font-size:13px;
+    line-height:2;
 }
 
 .check{
-
-    display:flex;
-
-    gap:9px;
-
-    align-items:center;
-
-    margin:9px 0;
-
+    margin-top:10px;
     font-size:13px;
-
-    color:#42534b;
+    color:#46564f;
 }
 
 .check b{
-
     color:var(--gold);
 }
 
-/* =========================
-   CTA
-========================= */
+/* ===== CTA ===== */
 
 .cta{
-
+    background:linear-gradient(135deg,var(--green),var(--green2));
+    border-radius:23px;
     padding:35px;
-
-    border-radius:25px;
-
-    background:
-
-    linear-gradient(
-        135deg,
-        var(--green),
-        var(--green2)
-    );
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:30px;
-
     color:white;
-
-    overflow:hidden;
-
-    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
 }
 
 .cta h2{
-
-    font-size:26px;
-
-    margin-bottom:7px;
+    font-size:25px;
 }
 
 .cta p{
-
-    color:#c6d7cf;
-
-    font-size:13px;
+    color:#c4d5cd;
+    font-size:12px;
 }
 
-.cta .primary-btn{
-
+.cta .btn{
     background:white;
-
     color:var(--green);
-
-    box-shadow:none;
-
     white-space:nowrap;
 }
 
-/* =========================
-   الفوتر
-========================= */
+/* ===== الفوتر ===== */
 
 footer{
-
-    background:#0b251b;
-
+    background:#09271d;
     color:white;
-
     padding:50px 0 20px;
 }
 
 .footer-grid{
-
     width:min(1150px,94%);
-
     margin:auto;
-
     display:grid;
-
-    grid-template-columns:1.4fr 1fr 1fr 1fr;
-
+    grid-template-columns:1.5fr 1fr 1fr 1fr;
     gap:35px;
 }
 
-.footer-brand img{
-
+.footer-logo{
     width:75px;
     height:75px;
-
     object-fit:contain;
-
     margin-bottom:10px;
 }
 
 .footer-brand h3{
-
-    font-size:20px;
+    font-size:18px;
 }
 
 .footer-brand p{
-
-    color:#a9beb4;
-
-    font-size:12px;
-
-    line-height:1.9;
-
+    color:#a9beb5;
+    font-size:11px;
     max-width:300px;
-
-    margin-top:8px;
 }
 
 footer h4{
-
     color:#e0c36b;
-
-    margin-bottom:13px;
-
-    font-size:14px;
+    font-size:13px;
+    margin-bottom:12px;
 }
 
 footer a{
-
     display:block;
-
-    color:#a9beb4;
-
-    font-size:12px;
-
-    margin:7px 0;
-
-    transition:.2s;
+    color:#a9beb5;
+    font-size:11px;
+    margin:6px 0;
 }
 
 footer a:hover{
-
     color:white;
 }
 
 .copyright{
-
     width:min(1150px,94%);
-
-    margin:35px auto 0;
-
+    margin:30px auto 0;
     padding-top:18px;
-
     border-top:1px solid rgba(255,255,255,.08);
-
     text-align:center;
-
-    color:#829b90;
-
-    font-size:11px;
+    color:#789086;
+    font-size:10px;
 }
 
-/* =========================
-   التجاوب
-========================= */
+/* ===== الموبايل ===== */
 
-@media(max-width:950px){
+@media(max-width:900px){
 
     .menu{
-
         display:none;
     }
 
-    .mobile-btn{
-
-        display:block;
-    }
-
-    .hero-container{
-
+    .hero-inner{
         grid-template-columns:1fr;
-
         text-align:center;
-
-        gap:10px;
     }
 
-    .hero-content p{
-
+    .hero-text p{
         margin-left:auto;
         margin-right:auto;
     }
 
-    .hero-buttons{
-
+    .buttons{
         justify-content:center;
     }
 
-    .hero-visual{
-
-        min-height:430px;
-    }
-
-    .features{
-
-        grid-template-columns:1fr 1fr;
+    .hero-image{
+        min-height:420px;
     }
 
     .stages{
-
         grid-template-columns:1fr 1fr;
     }
 
-    .materials{
-
+    .books{
         grid-template-columns:1fr 1fr;
     }
 
     .about{
-
         grid-template-columns:1fr;
     }
 
-    .rules-box{
-
+    .rules-grid{
         grid-template-columns:1fr;
     }
 
     .footer-grid{
-
         grid-template-columns:1fr 1fr;
     }
 }
 
 @media(max-width:600px){
 
-    header{
-
+    .navbar{
         height:70px;
     }
 
     .brand img{
-
         width:48px;
         height:48px;
     }
 
-    .brand-text strong{
-
+    .brand strong{
         font-size:16px;
     }
 
-    .hero{
-
-        min-height:auto;
-    }
-
-    .hero-content{
-
-        padding:45px 0 20px;
+    .login{
+        padding:9px 13px;
+        font-size:11px;
     }
 
     .hero h1{
-
-        font-size:36px;
+        font-size:37px;
     }
 
     .hero p{
-
-        font-size:14px;
+        font-size:13px;
     }
 
-    .main-visual{
-
-        height:330px;
-
-        border-radius:25px;
+    .image-box{
+        height:320px;
     }
 
-    .visual-logo{
-
+    .hero-logo{
         width:140px;
         height:140px;
     }
 
-    .float-one{
-
-        right:-3px;
-        top:35px;
-    }
-
-    .float-two{
-
-        left:-3px;
-        bottom:30px;
-    }
-
-    .stats-container{
-
+    .stats-inner{
         grid-template-columns:1fr 1fr;
     }
 
     .stat{
-
         border-bottom:1px solid var(--border);
     }
 
-    .features,
     .stages,
-    .materials{
-
+    .books{
         grid-template-columns:1fr;
     }
 
     .section{
-
-        padding:65px 0;
+        padding:60px 0;
     }
 
-    .section-head h2{
-
+    .section-title h2{
         font-size:27px;
     }
 
-    .about-content h2{
-
-        font-size:28px;
-    }
-
     .cta{
-
         flex-direction:column;
-
         align-items:flex-start;
-
-        padding:25px;
     }
 
     .footer-grid{
-
         grid-template-columns:1fr;
     }
 }
@@ -1426,19 +735,17 @@ footer a:hover{
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- ===== HEADER ===== -->
 
 <header>
 
 <nav class="navbar">
 
-<a href="#" class="brand">
+<a href="#home" class="brand">
 
 <img src="logo.png" alt="شعار منصة الغيث">
 
-<div class="brand-text">
+<div>
 <strong>منصة الغيث</strong>
 <span>التعليمية</span>
 </div>
@@ -1448,65 +755,54 @@ footer a:hover{
 <div class="menu">
 
 <a href="#home">الرئيسية</a>
-
 <a href="#about">عن المنصة</a>
-
 <a href="#stages">المراحل الدراسية</a>
-
-<a href="#materials">المواد الدراسية</a>
-
+<a href="#books">المواد الدراسية</a>
 <a href="#rules">الضوابط</a>
-
 <a href="#contact">تواصل معنا</a>
 
 </div>
 
-<button class="login-btn" onclick="login()">
+<button class="login">
 دخول المنصة
 </button>
-
-<div class="mobile-btn">
-☰
-</div>
 
 </nav>
 
 </header>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- ===== HERO ===== -->
 
 <section class="hero" id="home">
 
-<div class="hero-container">
+<div class="hero-inner">
 
-<div class="hero-content">
+<div class="hero-text">
 
-<div class="small-title">
-<i></i>
+<div class="tag">
 منصة تعليمية عراقية
 </div>
 
 <h1>
 التعليم يبدأ<br>
-<span>بخطوة</span> صحيحة
+<span>بخطوة صحيحة</span>
 </h1>
 
 <p>
-منصة الغيث التعليمية، بيئة تعليمية منظمة تهدف إلى
-توفير المحتوى الدراسي والخدمات التعليمية للطلبة
-بأسلوب حديث، واضح، وسهل الوصول.
+منصة الغيث التعليمية، بيئة تعليمية حديثة
+تهدف إلى تنظيم المحتوى الدراسي وتسهيل
+وصول الطالب إلى الكتب والمواد التعليمية
+بطريقة واضحة ومرتبة.
 </p>
 
-<div class="hero-buttons">
+<div class="buttons">
 
-<a href="#stages" class="primary-btn">
+<a href="#stages" class="btn btn-primary">
 استكشف المراحل الدراسية
 </a>
 
-<a href="#about" class="secondary-btn">
+<a href="#about" class="btn btn-secondary">
 تعرف على المنصة
 </a>
 
@@ -1515,16 +811,16 @@ footer a:hover{
 </div>
 
 
-<div class="hero-visual">
+<div class="hero-image">
 
-<div class="main-visual">
+<div class="image-box">
 
 <img
 src="logo.png"
-class="visual-logo"
+class="hero-logo"
 alt="منصة الغيث التعليمية">
 
-<div class="visual-title">
+<div class="image-title">
 
 <strong>منصة الغيث</strong>
 
@@ -1534,32 +830,12 @@ alt="منصة الغيث التعليمية">
 
 </div>
 
-<div class="floating-card float-one">
-
-<div class="float-icon">📚</div>
-
-<div>
-<strong>المناهج الدراسية</strong>
-<br>
-<span style="color:#7b8790">
-محتوى منظم للطلبة
-</span>
+<div class="float float-one">
+📚 كتب ومناهج دراسية
 </div>
 
-</div>
-
-<div class="floating-card float-two">
-
-<div class="float-icon">🎓</div>
-
-<div>
-<strong>تعليم أفضل</strong>
-<br>
-<span style="color:#7b8790">
-خطوة نحو النجاح
-</span>
-</div>
-
+<div class="float float-two">
+🎓 تعليم منظم للطلبة
 </div>
 
 </div>
@@ -1569,13 +845,11 @@ alt="منصة الغيث التعليمية">
 </section>
 
 
-<!-- =========================
-     STATS
-========================= -->
+<!-- ===== STATS ===== -->
 
 <section class="stats">
 
-<div class="stats-container">
+<div class="stats-inner">
 
 <div class="stat">
 <strong>2026</strong>
@@ -1583,18 +857,18 @@ alt="منصة الغيث التعليمية">
 </div>
 
 <div class="stat">
-<strong>8+</strong>
+<strong>8</strong>
 <span>مراحل دراسية</span>
 </div>
 
 <div class="stat">
-<strong>20+</strong>
-<span>مادة دراسية</span>
+<strong>PDF</strong>
+<span>كتب وملفات تعليمية</span>
 </div>
 
 <div class="stat">
-<strong>PDF</strong>
-<span>ملفات ومصادر تعليمية</span>
+<strong>24/7</strong>
+<span>وصول للمحتوى</span>
 </div>
 
 </div>
@@ -1602,9 +876,7 @@ alt="منصة الغيث التعليمية">
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ===== ABOUT ===== -->
 
 <section class="section" id="about">
 
@@ -1612,15 +884,15 @@ alt="منصة الغيث التعليمية">
 
 <div class="about">
 
-<div class="about-box">
+<div class="about-image">
 
-<img src="logo.png" alt="شعار منصة الغيث">
+<img src="logo.png" alt="منصة الغيث">
 
 </div>
 
-<div class="about-content">
+<div class="about-text">
 
-<div class="section-head" style="text-align:right;margin:0 0 20px">
+<div class="section-title" style="text-align:right;margin-bottom:15px">
 
 <small>من نحن</small>
 
@@ -1631,30 +903,26 @@ alt="منصة الغيث التعليمية">
 </div>
 
 <p>
-منصة الغيث هي مساحة تعليمية تهدف إلى تنظيم
-المحتوى الدراسي وتسهيل وصول الطالب إلى
-المواد والمصادر التعليمية بطريقة واضحة
-ومرتبة.
+منصة تعليمية تهدف إلى جمع المحتوى الدراسي
+وتنظيمه ضمن بيئة إلكترونية سهلة الاستخدام،
+بحيث يستطيع الطالب الوصول إلى المرحلة
+والصف والمادة والكتاب الذي يحتاج إليه.
 </p>
 
 <div class="check">
-<b>✓</b>
-محتوى دراسي منظم
+<b>✓</b> تنظيم الكتب حسب الصفوف
 </div>
 
 <div class="check">
-<b>✓</b>
-تقسيم حسب المرحلة والصف والمادة
+<b>✓</b> ملفات PDF للمواد الدراسية
 </div>
 
 <div class="check">
-<b>✓</b>
-ملفات تعليمية بصيغة PDF
+<b>✓</b> واجهة مناسبة للموبايل والآيباد
 </div>
 
 <div class="check">
-<b>✓</b>
-واجهة سهلة الاستخدام للطالب والمدرس
+<b>✓</b> قابلة للتوسع وإضافة الخدمات مستقبلًا
 </div>
 
 </div>
@@ -1666,290 +934,74 @@ alt="منصة الغيث التعليمية">
 </section>
 
 
-<!-- =========================
-     FEATURES
-========================= -->
-
-<section class="section" style="background:#f1f5f3">
-
-<div class="container">
-
-<div class="section-head">
-
-<small>ماذا نقدم؟</small>
-
-<h2>
-كل ما يحتاجه الطالب في مكان واحد
-</h2>
-
-<p>
-نسعى إلى بناء بيئة تعليمية مرتبة تجمع
-المحتوى والخدمات التعليمية في منصة واحدة.
-</p>
-
-</div>
-
-<div class="features">
-
-<div class="feature">
-
-<div class="feature-icon">
-📚
-</div>
-
-<h3>
-المواد الدراسية
-</h3>
-
-<p>
-الوصول إلى المواد الدراسية بحسب المرحلة
-والصف والمادة، مع إمكانية إضافة ملفات PDF
-والمصادر التعليمية.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-🎓
-</div>
-
-<h3>
-المراحل الدراسية
-</h3>
-
-<p>
-تنظيم المحتوى من الصفوف الابتدائية
-وحتى المراحل المتوسطة بطريقة سهلة
-وواضحة.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-📝
-</div>
-
-<h3>
-الاختبارات والمتابعة
-</h3>
-
-<p>
-مساحة قابلة للتطوير مستقبلًا لإضافة
-الاختبارات والدرجات ومتابعة مستوى الطالب.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-👨‍🏫
-</div>
-
-<h3>
-المدرسون
-</h3>
-
-<p>
-إمكانية إدارة الكادر التدريسي وربط المدرسين
-بالمراحل والمواد والطلاب.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-🏆
-</div>
-
-<h3>
-التكريم والحوافز
-</h3>
-
-<p>
-قسم مخصص مستقبلًا لتكريم الطلاب المتميزين
-وتقديم الحوافز التعليمية.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-📊
-</div>
-
-<h3>
-التقارير والمتابعة
-</h3>
-
-<p>
-إمكانية إضافة تقارير وإحصائيات تساعد
-على متابعة الأداء التعليمي والإداري.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     STAGES
-========================= -->
+<!-- ===== STAGES ===== -->
 
 <section class="section stages-section" id="stages">
 
 <div class="container">
 
-<div class="section-head">
+<div class="section-title">
 
 <small>المراحل الدراسية</small>
 
 <h2>
-اختر مرحلتك الدراسية
+اختر الصف الدراسي
 </h2>
 
 <p>
-سيتم ربط كل مرحلة بالمواد والملفات الدراسية
-الخاصة بها.
+اختر المرحلة للوصول إلى الكتب والمواد الخاصة بها.
 </p>
 
 </div>
-
 
 <div class="stages">
 
 <div class="stage">
-
 <span class="stage-number">01</span>
-
-<h3>
-الأول الابتدائي
-</h3>
-
-<p>
-المواد الدراسية والملفات التعليمية
-</p>
-
+<h3>الأول الابتدائي</h3>
+<p>الكتب والمواد الدراسية</p>
 </div>
 
-
 <div class="stage">
-
 <span class="stage-number">02</span>
-
-<h3>
-الثاني الابتدائي
-</h3>
-
-<p>
-المواد الدراسية والملفات التعليمية
-</p>
-
+<h3>الثاني الابتدائي</h3>
+<p>الكتب والمواد الدراسية</p>
 </div>
 
-
 <div class="stage">
-
 <span class="stage-number">03</span>
-
-<h3>
-الثالث الابتدائي
-</h3>
-
-<p>
-المواد الدراسية والملفات التعليمية
-</p>
-
+<h3>الثالث الابتدائي</h3>
+<p>الكتب والمواد الدراسية</p>
 </div>
 
-
 <div class="stage">
-
 <span class="stage-number">04</span>
-
-<h3>
-الرابع الابتدائي
-</h3>
-
-<p>
-المواد الدراسية والملفات التعليمية
-</p>
-
+<h3>الرابع الابتدائي</h3>
+<p>الكتب والمواد الدراسية</p>
 </div>
 
-
 <div class="stage">
-
 <span class="stage-number">05</span>
-
-<h3>
-الخامس الابتدائي
-</h3>
-
-<p>
-المواد الدراسية والملفات التعليمية
-</p>
-
+<h3>الخامس الابتدائي</h3>
+<p>الكتب والمواد الدراسية</p>
 </div>
 
-
 <div class="stage">
-
 <span class="stage-number">06</span>
-
-<h3>
-السادس الابتدائي
-</h3>
-
-<p>
-المواد الدراسية والملفات التعليمية
-</p>
-
+<h3>السادس الابتدائي</h3>
+<p>الكتب والمواد الدراسية</p>
 </div>
 
-
 <div class="stage">
-
 <span class="stage-number">07</span>
-
-<h3>
-الأول المتوسط
-</h3>
-
-<p>
-المواد الدراسية والملفات التعليمية
-</p>
-
+<h3>الأول المتوسط</h3>
+<p>الكتب والمواد الدراسية</p>
 </div>
 
-
 <div class="stage">
-
 <span class="stage-number">08</span>
-
-<h3>
-الثاني المتوسط
-</h3>
-
-<p>
-المواد الدراسية والملفات التعليمية
-</p>
-
+<h3>الثاني المتوسط</h3>
+<p>الكتب والمواد الدراسية</p>
 </div>
 
 </div>
@@ -1959,118 +1011,92 @@ alt="منصة الغيث التعليمية">
 </section>
 
 
-<!-- =========================
-     MATERIALS
-========================= -->
+<!-- ===== BOOKS ===== -->
 
-<section class="section" id="materials">
+<section class="section" id="books">
 
 <div class="container">
 
-<div class="section-head">
+<div class="section-title">
 
-<small>المحتوى التعليمي</small>
+<small>المواد الدراسية</small>
 
 <h2>
-المواد الدراسية
+الأول الابتدائي
 </h2>
 
 <p>
-قسم مخصص لإضافة المواد والكتب والملفات
-التعليمية بصيغة PDF.
+الكتب الدراسية المتاحة حاليًا.
 </p>
 
 </div>
 
+<div class="books">
 
-<div class="materials">
+<div class="book">
 
-<div class="material">
-
-<div class="material-icon">📖</div>
-
-<div>
-
-<h3>اللغة العربية</h3>
-
-<p>كتب وملفات تعليمية</p>
-
+<div class="book-icon">
+📘
 </div>
 
-</div>
+<h3>
+كتاب الرياضيات
+</h3>
 
+<p>
+الصف الأول الابتدائي
+</p>
 
-<div class="material">
+<a
+href="كتاب الرياضيات الاول الابتدائي.pdf"
+target="_blank"
+class="open-book">
 
-<div class="material-icon">🔢</div>
+📖 فتح الكتاب PDF
 
-<div>
-
-<h3>الرياضيات</h3>
-
-<p>كتب وملفات تعليمية</p>
-
-</div>
+</a>
 
 </div>
 
 
-<div class="material">
+<div class="book">
 
-<div class="material-icon">🔬</div>
-
-<div>
-
-<h3>العلوم</h3>
-
-<p>كتب وملفات تعليمية</p>
-
+<div class="book-icon">
+📚
 </div>
 
-</div>
+<h3>
+كتب أخرى
+</h3>
 
+<p>
+سيتم إضافة بقية المواد لاحقًا.
+</p>
 
-<div class="material">
-
-<div class="material-icon">🌍</div>
-
-<div>
-
-<h3>الاجتماعيات</h3>
-
-<p>كتب وملفات تعليمية</p>
-
-</div>
+<span style="color:#9aa59f;font-size:11px;">
+قريبًا
+</span>
 
 </div>
 
 
-<div class="material">
+<div class="book">
 
-<div class="material-icon">🇬🇧</div>
-
-<div>
-
-<h3>اللغة الإنكليزية</h3>
-
-<p>كتب وملفات تعليمية</p>
-
+<div class="book-icon">
+📄
 </div>
 
-</div>
+<h3>
+ملفات تعليمية
+</h3>
 
+<p>
+سيتم إضافة الملفات والمصادر.
+</p>
 
-<div class="material">
-
-<div class="material-icon">📄</div>
-
-<div>
-
-<h3>ملفات PDF</h3>
-
-<p>المصادر والكتب الدراسية</p>
-
-</div>
+<span style="color:#9aa59f;font-size:11px;">
+قريبًا
+</span>
 
 </div>
 
@@ -2081,63 +1107,57 @@ alt="منصة الغيث التعليمية">
 </section>
 
 
-<!-- =========================
-     RULES
-========================= -->
+<!-- ===== RULES ===== -->
 
-<section class="section rules-section" id="rules">
+<section class="section rules" id="rules">
 
 <div class="container">
 
-<div class="section-head">
+<div class="section-title">
 
-<small>التنظيم والأنظمة</small>
+<small>الأنظمة والتعليمات</small>
 
 <h2>
 ضوابط منصة الغيث
 </h2>
 
 <p>
-قسم مخصص لعرض ضوابط التدريس والتعليم
-والملفات الرسمية الخاصة بالمنصة.
+سيتم إضافة ملفات الضوابط الرسمية هنا.
 </p>
 
 </div>
 
+<div class="rules-grid">
 
-<div class="rules-box">
-
-<div class="rule-card">
+<div class="rule">
 
 <strong>📋 ضوابط التدريس</strong>
 
 <span>
-سيتم إضافة ملف ضوابط التدريس بصيغة PDF
-ليكون متاحًا للمدرسين والطلاب.
+قسم مخصص لعرض ضوابط التدريس
+والتعليم داخل المنصة.
 </span>
 
 </div>
 
+<div class="rule">
 
-<div class="rule-card">
-
-<strong>📚 المنهج الدراسي</strong>
+<strong>📚 تنظيم المحتوى</strong>
 
 <span>
-تنظيم المحتوى الدراسي بحسب المرحلة
+يتم تنظيم الكتب بحسب المرحلة
 والصف والمادة.
 </span>
 
 </div>
 
+<div class="rule">
 
-<div class="rule-card">
-
-<strong>🏛️ المصادر الرسمية</strong>
+<strong>🏛️ المصادر</strong>
 
 <span>
-إضافة الملفات والمصادر المعتمدة
-وفق المحتوى الذي سيتم رفعه للمنصة.
+يمكن إضافة الملفات والمصادر
+المعتمدة إلى المنصة.
 </span>
 
 </div>
@@ -2149,9 +1169,7 @@ alt="منصة الغيث التعليمية">
 </section>
 
 
-<!-- =========================
-     CTA
-========================= -->
+<!-- ===== CTA ===== -->
 
 <section class="section">
 
@@ -2162,17 +1180,17 @@ alt="منصة الغيث التعليمية">
 <div>
 
 <h2>
-ابدأ رحلتك التعليمية مع الغيث
+رحلتك التعليمية تبدأ من هنا
 </h2>
 
 <p>
-منصة واحدة، محتوى منظم، وطريق أوضح نحو النجاح.
+اختر صفك وابدأ بالوصول إلى المواد الدراسية.
 </p>
 
 </div>
 
-<a href="#stages" class="primary-btn">
-تصفح المراحل الدراسية
+<a href="#stages" class="btn">
+تصفح المراحل
 </a>
 
 </div>
@@ -2182,9 +1200,7 @@ alt="منصة الغيث التعليمية">
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- ===== FOOTER ===== -->
 
 <footer id="contact">
 
@@ -2192,16 +1208,18 @@ alt="منصة الغيث التعليمية">
 
 <div class="footer-brand">
 
-<img src="logo.png" alt="منصة الغيث">
+<img
+src="logo.png"
+class="footer-logo"
+alt="منصة الغيث">
 
 <h3>
 منصة الغيث التعليمية
 </h3>
 
 <p>
-منصة تعليمية تهدف إلى توفير بيئة
-تعليمية منظمة وسهلة الوصول للطلاب
-والمدرسين.
+منصة تعليمية تهدف إلى تنظيم
+المحتوى الدراسي وتسهيل الوصول إليه.
 </p>
 
 </div>
@@ -2209,33 +1227,23 @@ alt="منصة الغيث التعليمية">
 
 <div>
 
-<h4>
-المنصة
-</h4>
+<h4>المنصة</h4>
 
 <a href="#home">الرئيسية</a>
-
 <a href="#about">عن المنصة</a>
-
 <a href="#stages">المراحل الدراسية</a>
-
-<a href="#materials">المواد الدراسية</a>
+<a href="#books">المواد الدراسية</a>
 
 </div>
 
 
 <div>
 
-<h4>
-التعليم
-</h4>
+<h4>التعليم</h4>
 
-<a href="#materials">الكتب الدراسية</a>
-
-<a href="#rules">ضوابط التدريس</a>
-
+<a href="#books">الكتب الدراسية</a>
+<a href="#rules">الضوابط</a>
 <a href="#">الاختبارات</a>
-
 <a href="#">المدرسون</a>
 
 </div>
@@ -2243,16 +1251,11 @@ alt="منصة الغيث التعليمية">
 
 <div>
 
-<h4>
-روابط
-</h4>
+<h4>روابط</h4>
 
 <a href="#">تسجيل الدخول</a>
-
-<a href="#">تواصل معنا</a>
-
-<a href="#">سياسة الخصوصية</a>
-
+<a href="#contact">تواصل معنا</a>
+<a href="#">الخصوصية</a>
 <a href="#">الشروط والأحكام</a>
 
 </div>
@@ -2267,19 +1270,6 @@ alt="منصة الغيث التعليمية">
 </div>
 
 </footer>
-
-
-<script>
-
-function login(){
-
-    alert(
-        "سيتم تفعيل تسجيل الدخول عند تجهيز نظام الطلاب والمدرسين."
-    );
-
-}
-
-</script>
 
 </body>
 </html>
